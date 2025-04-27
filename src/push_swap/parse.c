@@ -38,24 +38,42 @@ long int	ps_atoi(const char *nptr)
 	return (result * sign);
 }
 
-void    init_stack(t_stack *stack, int n, char **values)
+void	split_value(t_stack_list *stack_list, t_stack *stack, const char *value)
 {
-    int i;
+	int		i;
+	long int	num;
 
-    i = 1;
-    while (i < n)
-    {
-	while (*values[i])
+	i = 0;
+	if (!ft_strlen(value) || !value)
+		print_error(stack_list, INT_ERROR);
+	while (value[i])
 	{
-		if (*values[i] == ' ' || ('\t' <= *values[i] && '\r' >= *values[i]))
+		if (value[i] == ' ' || ('\t' <= value[i] && '\r' >= value[i]))
 			i++;
-		if (*values[i] == '-' || *values[i] == '+')
+		if (value[i] == '+' || value[i] == '-')
 			i++;
-		printf("%ld\n", ps_atoi(values[i]));
-		values[i]++;
+		if (i == 0 && ('0' <= value[i] && '9' >= value[i]))
+			num = ps_atoi(&value[i]);
+		else if ('0' <= value[i] && '9' >= value[i])
+			num = ps_atoi(&value[i - 1]);
+		else
+			print_error(stack_list, INT_ERROR);
+		if (num > MAX_INT || num < MIN_INT)
+			print_error(stack_list, INT_OVERFLOW);
+		append_stack(stack, num);
+		while ('0' <= value[i] && '9' >= value[i])
+			i++;
 	}
-	i++;
-    }
-    printf("\n");
-    stack = 0;
+}
+
+void	parse_data(t_stack_list *stack_list, t_stack *stack, char **values)
+{
+	if (!values)
+		print_error(stack_list, 0);
+	stack->first = NULL;
+	while (*values)
+	{
+		split_value(stack_list, stack, *values);
+		values++;
+	}
 }

@@ -12,24 +12,16 @@
 
 #include "../../include/pushswap.h"
 
-void    print_error(char *message)
-{
-    printf("Error\n");
-    printf("%s", message);
-    exit(EXIT_SUCCESS);
-}
-
 int main(int argc, char **argv)
 {
-    t_stack a;
-    t_stack b;
+    t_stack_list *stack_list;
 
+    stack_list = 0;
     if (argc < 2)
     {
-        print_error(ARG_NUMBER);
+        print_error(stack_list, ARG_NUMBER);
         return (0);
     }
-    init_stack(&a, argc, argv);
-    b = a;
-    // init_stack(&b, argc, 0);
+    else
+        init_stack_list(stack_list, &argv[1]);
 }

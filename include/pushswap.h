@@ -11,16 +11,37 @@
 # define INT_ERROR "One value of array is not integer.\n"
 # define INT_OVERFLOW "One value of array is out of the limits of integer datatype.\n"
 
-typedef struct s_stack
+typedef struct s_node
 {
     int n;
-    struct s_stack *next;
+    struct s_node *next;
+    struct s_node *prev;
+} t_node;
 
+
+typedef struct s_stack
+{
+    t_node *first;
+    t_node *last;
+    int     size;
 } t_stack;
 
-void    print_error(char *message);
+typedef struct s_stack_list
+{
+    t_stack *a;
+    t_stack *b;
+}   t_stack_list;
 
-void    init_stack(t_stack *stack, int n, char **values);
+void    print_error(t_stack_list *stack_list, char *message);
+
+void    init_stack_list(t_stack_list *stack_list, char **values);
+
+void	parse_data(t_stack_list *stack_list, t_stack *stack, char **values);
+void	split_value(t_stack_list *stack_list, t_stack *stack, const char *value);
 long int	ps_atoi(const char *nptr);
+
+void	append_stack(t_stack *stack, int num);
+t_node	*stack_last(t_stack *stack);
+// int	stack_size(t_node *node);
 
 #endif
