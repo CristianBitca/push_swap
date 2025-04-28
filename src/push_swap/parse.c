@@ -60,7 +60,7 @@ void	split_value(t_stack_list *stack_list, t_stack *stack, const char *value)
 			print_error(stack_list, INT_ERROR);
 		if (num > MAX_INT || num < MIN_INT)
 			print_error(stack_list, INT_OVERFLOW);
-		append_stack(stack, num);
+		append_stack(&stack->first, new_node(num));
 		while ('0' <= value[i] && '9' >= value[i])
 			i++;
 	}
@@ -70,7 +70,6 @@ void	parse_data(t_stack_list *stack_list, t_stack *stack, char **values)
 {
 	if (!values)
 		print_error(stack_list, 0);
-	stack->first = NULL;
 	while (*values)
 	{
 		split_value(stack_list, stack, *values);

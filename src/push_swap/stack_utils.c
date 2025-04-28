@@ -12,24 +12,36 @@
 
 #include "../../include/pushswap.h"
 
-void	append_stack(t_stack *stack, int num)
+t_node *new_node(int num)
 {
 	t_node *node;
-	t_node *new;
 
-	new = ft_calloc(sizeof(t_node), 1);
-	node = stack->first;
+	node = ft_calloc(sizeof(t_node), 1);
+	if (!node)
+		return (0);
 	node->n = num;
-	node->prev = node;
-	node->next = new;
-
+	return (node);
 }
 
-t_node	*stack_last(t_stack *stack)
+void	append_stack(t_node **node_lst, t_node *new)
+{
+	if (node_lst)
+	{
+		if (*node_lst)
+		{
+			stack_last(*node_lst)->next = new;
+			new->prev = *node_lst;
+		}
+		else
+			*node_lst = new;
+	}
+}
+
+t_node	*stack_last(t_node *first)
 {
 	t_node *node;
 
-	node = stack->first;
+	node = first;
 	if (!node)
 		return (0);
 	while (node->next != NULL)
@@ -37,18 +49,27 @@ t_node	*stack_last(t_stack *stack)
 	return (node);
 }
 
-// int	stack_size(t_node *node)
-// {
-// 	int	i;
+int	stack_size(t_node *node)
+{
+	int	i;
 
-// 	i = 0;
-// 	if (!node)
-// 		return (i);
-// 	while (node->next)
-// 	{
-// 		i++;
-// 		node = node->next;
-// 	}
-// 	return (i);
-// }
+	i = 0;
+	if (!node)
+		return (i);
+	while (node)
+	{
+		i++;
+		node = node->next;
+	}
+	return (i);
+}
+
+void	print_stack(t_node *node_lst)
+{
+	while (node_lst)
+	{
+		ft_printf("%d\n", node_lst->n);
+		node_lst = node_lst->next;
+	}
+}
 

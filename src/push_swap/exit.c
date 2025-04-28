@@ -12,38 +12,30 @@
 
 #include "../../include/pushswap.h"
 
-void	free_nodes(t_node *node, int size)
+void	free_stack(t_node *node_lst)
 {
-	int	i;
+	t_node *cur;
 
-	i = 0;
-	size = 0;
-	node = 0;
-}
-
-void	free_stack(t_stack *stack)
-{
-	if (stack)
+	while (node_lst)
 	{
-		free_nodes(stack->first, stack->size);
-		free(stack->first);
-		free(stack->last);
+		cur = node_lst;
+		node_lst = node_lst->next;
+		free(cur);
 	}
-	free(stack);
 }
 
 void	free_stack_list(t_stack_list *stack_list)
 {
-	// if (stack_list->a)
-	// {
-	// 	// free_stack(stack_list->a);
-	// 	free(stack_list->a);
-	// }
-	// if (stack_list->b)
-	// {
-	// 	// free_stack(stack_list->b);
-	// 	free(stack_list->b);
-	// }
+	if (stack_list->a)
+	{
+		free_stack(stack_list->a->first);
+		free(stack_list->a);
+	}
+	if (stack_list->b)
+	{
+		free_stack(stack_list->b->first);
+		free(stack_list->b);
+	}
 	free(stack_list);
 }
 
