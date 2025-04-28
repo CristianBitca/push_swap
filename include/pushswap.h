@@ -43,6 +43,6 @@ t_node *new_node(int num);
 void	append_stack(t_node **node_lst, t_node *new);
 t_node	*stack_last(t_node *first);
 int	stack_size(t_node *node);
-void	print_stack(t_node *node_lst);
+void	print_stack(t_node *stack_a, t_node *stack_b);
 
 #endif

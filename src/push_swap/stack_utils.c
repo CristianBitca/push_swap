@@ -64,12 +64,19 @@ int	stack_size(t_node *node)
 	return (i);
 }
 
-void	print_stack(t_node *node_lst)
+void	print_stack(t_node *stack_a, t_node *stack_b)
 {
-	while (node_lst)
+	
+	while (stack_a)
 	{
-		ft_printf("%d\n", node_lst->n);
-		node_lst = node_lst->next;
+		if (stack_b)
+		{
+			ft_printf("%d | %d\n", stack_a->n, stack_b->n);
+			stack_b = stack_b->next;
+		}
+		else
+			ft_printf("%d |  \n", stack_a->n);
+		stack_a = stack_a->next;
 	}
 }
 
