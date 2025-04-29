@@ -26,15 +26,12 @@ void	free_stack(t_node *node_lst)
 
 void	free_stack_list(t_stack_list *stack_list)
 {
-	if (stack_list->a)
+	if (stack_list)
 	{
 		free_stack(stack_list->a->first);
-		free(stack_list->a);
-	}
-	if (stack_list->b)
-	{
 		free_stack(stack_list->b->first);
 		free(stack_list->b);
+		free(stack_list->a);
 	}
 	free(stack_list);
 }

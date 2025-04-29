@@ -24,4 +24,5 @@ int main(int argc, char **argv)
     }
     else
         init_stack_list(stack_list, &argv[1]);
+    free_stack_list(stack_list);
 }
