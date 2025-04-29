@@ -12,7 +12,7 @@
 
 #include "../../include/pushswap.h"
 
-long int	ps_atoi(const char *nptr)
+long int	ps_atoi(t_stack_list *stack_list, const char *nptr)
 {
 	int	i;
 	long int	sign;
@@ -29,6 +29,8 @@ long int	ps_atoi(const char *nptr)
 			sign = -1;
 		i++;
 	}
+	if (!ft_isdigit(nptr[i]))
+		print_error(stack_list, INT_ERROR);
 	while (ft_isdigit(nptr[i]))
 	{
 		result = result * 10 + nptr[i] - '0';
@@ -37,14 +39,26 @@ long int	ps_atoi(const char *nptr)
 	return (result * sign);
 }
 
-int	next_int(t_stack_list *stack_list, const char *value, int i)
+void	check_duplicates(t_stack_list *stack_list, t_node *node, int num)
 {
+	while (node)
+	{
+		if (node->n == num)
+			print_error(stack_list, INT_DUP);
+		node = node->next;
+	}
+}
+
+int	next_int(const char *value, int i)
+{
+	if (value[i] == ' ' || ('\t' <= value[i] && '\r' >= value[i]))
+		i++;
+	if (value[i] == '+' || value[i] == '-')
+		i++;
 	while (ft_isdigit(value[i]))
 		i++;
 	if (value[i] == ' ' || ('\t' <= value[i] && '\r' >= value[i]))
 		i++;
-	else if (value[i])
-		print_error(stack_list, INT_ERROR);
 	return (i);
 }
 
@@ -58,22 +72,12 @@ void	split_value(t_stack_list *stack_list, t_stack *stack, const char *value)
 		print_error(stack_list, INT_ERROR);
 	while (value[i])
 	{
-		if (value[i] == ' ' || ('\t' <= value[i] && '\r' >= value[i]))
-			i++;
-		if (value[i] == '+' || value[i] == '-')
-			i++;
-		if (i == 0 && ft_isdigit(value[i]))
-			num = ps_atoi(&value[i]);
-		else if (ft_isdigit(value[i]))
-			num = ps_atoi(&value[i - 1]);
-		else
-			print_error(stack_list, INT_ERROR);
+		num = ps_atoi(stack_list, &value[i]);
 		if (num > MAX_INT || num < MIN_INT)
 			print_error(stack_list, INT_OVERFLOW);
+		check_duplicates(stack_list, stack->first, num);
 		append_stack(&stack->first, new_node(num));
-		// if (!stack->first->next)
-		// 	check_duplicates()
-		i = next_int(stack_list, value, i);
+		i = next_int(value, i);
 	}
 }
 

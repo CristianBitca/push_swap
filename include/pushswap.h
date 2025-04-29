@@ -8,6 +8,7 @@
 # define ARG_NUMBER "You entered a wrong amount of arguments.\n"
 # define INT_ERROR "One value of array is not integer.\n"
 # define INT_OVERFLOW "One value of array is out of the limits of integer datatype.\n"
+# define INT_DUP "Your stack has an duplicated value.\n"
 
 typedef struct s_node
 {
@@ -30,14 +31,17 @@ typedef struct s_stack_list
     t_stack *b;
 }   t_stack_list;
 
+void	free_stack(t_node *node_lst)
 void	free_stack_list(t_stack_list *stack_list);
 void    print_error(t_stack_list *stack_list, char *message);
 
 void    init_stack_list(t_stack_list *stack_list, char **values);
 
-void	parse_data(t_stack_list *stack_list, t_stack *stack, char **values);
+long int	ps_atoi(t_stack_list *stack_list, const char *nptr);
+void	check_duplicates(t_stack_list *stack_list, t_node *node, int num);
+int	next_int(const char *value, int i);
 void	split_value(t_stack_list *stack_list, t_stack *stack, const char *value);
-long int	ps_atoi(const char *nptr);
+void	parse_data(t_stack_list *stack_list, t_stack *stack, char **values);
 
 t_node *new_node(int num);
 void	append_stack(t_node **node_lst, t_node *new);
