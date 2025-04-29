@@ -2,9 +2,8 @@
 # define PUSHSWAP_H
 
 # include "../lib/libft/include/libft.h"
+# include <limits.h>
 
-# define MAX_INT 2147483647
-# define MIN_INT -2147483648
 # define ARG_NUMBER "You entered a wrong amount of arguments.\n"
 # define INT_ERROR "One value of array is not integer.\n"
 # define INT_OVERFLOW "One value of array is out of the limits of integer datatype.\n"
@@ -31,7 +30,7 @@ typedef struct s_stack_list
     t_stack *b;
 }   t_stack_list;
 
-void	free_stack(t_node *node_lst)
+void	free_stack(t_node *node_lst);
 void	free_stack_list(t_stack_list *stack_list);
 void    print_error(t_stack_list *stack_list, char *message);
 

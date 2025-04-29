@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-# CC      = cc
-# CFLAGS  = -Wall -Wextra -Werror 
-CFLAGS  = -Wall -Wextra -Werror -fsanitize=address -g3 -O0
+CC      = cc
+CFLAGS  = -Wall -Wextra -Werror -I$(INC_DIR)
+# CFLAGS  = -Wall -Wextra -Werror -fsanitize=address -g3 -O0 -I$(INC_DIR)
 
 
 SRC_DIR     = src

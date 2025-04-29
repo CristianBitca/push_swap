@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/pushswap.h"
+#include "pushswap.h"
 
 void	free_stack(t_node *node_lst)
 {
-	t_node *cur;
+	t_node	*cur;
 
 	while (node_lst)
 	{
@@ -36,10 +36,11 @@ void	free_stack_list(t_stack_list *stack_list)
 	free(stack_list);
 }
 
-void    print_error(t_stack_list *stack_list, char *message)
+void	print_error(t_stack_list *stack_list, char *message)
 {
 	printf("Error\n");
-	printf("%s", message);
+	if (message)
+		printf("%s", message);
 	free_stack_list(stack_list);
 	exit(EXIT_FAILURE);
 }

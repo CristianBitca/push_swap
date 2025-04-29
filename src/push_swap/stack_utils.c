@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/pushswap.h"
+#include "pushswap.h"
 
-t_node *new_node(int num)
+t_node	*new_node(int num)
 {
-	t_node *node;
+	t_node	*node;
 
 	node = ft_calloc(sizeof(t_node), 1);
 	if (!node)
@@ -39,7 +39,7 @@ void	append_stack(t_node **node_lst, t_node *new)
 
 t_node	*stack_last(t_node *first)
 {
-	t_node *node;
+	t_node	*node;
 
 	node = first;
 	if (!node)
@@ -66,7 +66,6 @@ int	stack_size(t_node *node)
 
 void	print_stack(t_node *stack_a, t_node *stack_b)
 {
-	
 	while (stack_a)
 	{
 		if (stack_b)
@@ -79,4 +78,3 @@ void	print_stack(t_node *stack_a, t_node *stack_b)
 		stack_a = stack_a->next;
 	}
 }
-

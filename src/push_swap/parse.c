@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/pushswap.h"
+#include "pushswap.h"
 
 long int	ps_atoi(t_stack_list *stack_list, const char *nptr)
 {
-	int	i;
 	long int	sign;
 	long int	result;
+	int			i;
 
 	i = 0;
 	result = 0;
@@ -64,16 +64,16 @@ int	next_int(const char *value, int i)
 
 void	split_value(t_stack_list *stack_list, t_stack *stack, const char *value)
 {
-	int		i;
+	int			i;
 	long int	num;
 
 	i = 0;
 	if (!ft_strlen(value) || !value)
-		print_error(stack_list, INT_ERROR);
+		print_error(stack_list, 0);
 	while (value[i])
 	{
 		num = ps_atoi(stack_list, &value[i]);
-		if (num > MAX_INT || num < MIN_INT)
+		if (num > INT_MAX || num < INT_MIN)
 			print_error(stack_list, INT_OVERFLOW);
 		check_duplicates(stack_list, stack->first, num);
 		append_stack(&stack->first, new_node(num));
