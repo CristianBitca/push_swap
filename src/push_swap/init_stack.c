@@ -24,4 +24,7 @@ void	init_stack_list(t_stack_list *stack_list, char **values)
 	parse_data(stack_list, stack_list->a, values);
 	stack_list->a->last = stack_last(stack_list->a->first);
 	stack_list->a->size = stack_size(stack_list->a->first);
+	print_stack(stack_list->a->first, stack_list->b->first);
+	pb(stack_list);
+	pb(stack_list);
 }

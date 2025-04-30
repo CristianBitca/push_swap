@@ -11,3 +11,51 @@
 /* ************************************************************************** */
 
 #include "pushswap.h"
+
+void	pa(t_stack_list *stack_list)
+{
+	t_node *temp;
+
+	if (!stack_list || !stack_list->b || !stack_list->b->first)
+		return ;
+	temp = stack_list->b->first;
+	stack_list->b->first = stack_list->b->first->next;
+	if (stack_list->b->first)
+		stack_list->b->first->prev = NULL;
+	else
+		stack_list->b->last = NULL;
+	stack_list->b->size--;
+	temp->next = stack_list->a->first;
+	if (stack_list->a->first)
+		stack_list->a->first->prev = temp;
+	else
+		stack_list->a->last = temp;
+	stack_list->a->first = temp;
+	stack_list->a->size++;
+	printf("pa\n");
+	print_stack(stack_list->a->first, stack_list->b->first);
+}
+
+void	pb(t_stack_list *stack_list)
+{
+	t_node *temp;
+
+	if (!stack_list || !stack_list->a || !stack_list->a->first)
+		return ;
+	temp = stack_list->a->first;
+	stack_list->a->first = stack_list->a->first->next;
+	if (stack_list->a->first)
+		stack_list->a->first->prev = NULL;
+	else
+		stack_list->a->last = NULL;
+	stack_list->a->size--;
+	temp->next = stack_list->b->first;
+	if (stack_list->b->first)
+		stack_list->b->first->prev = temp;
+	else
+		stack_list->b->last = temp;
+	stack_list->b->first = temp;
+	stack_list->b->size++;
+	printf("pb\n");
+	print_stack(stack_list->a->first, stack_list->b->first);
+}

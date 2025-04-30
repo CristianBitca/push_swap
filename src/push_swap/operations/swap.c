@@ -12,7 +12,24 @@
 
 #include "pushswap.h"
 
-void	swap(t_stack *stack, t_node *node1, t_node *node2)
+void	sa(t_stack_list *stack_list)
 {
-	stack.
+	swap_int(stack_list->a->first, stack_list->a->first->next);
+	ft_printf("sa\n");
+	print_stack(stack_list->a->first, stack_list->b->first);
+}
+
+void	sb(t_stack_list *stack_list)
+{
+	swap_int(stack_list->b->first, stack_list->b->first->next);
+	ft_printf("sb\n");
+	print_stack(stack_list->a->first, stack_list->b->first);
+}
+
+void	ss(t_stack_list *stack_list)
+{
+	swap_int(stack_list->a->first, stack_list->a->first->next);
+	swap_int(stack_list->b->first, stack_list->b->first->next);
+	ft_printf("ss\n");
+	print_stack(stack_list->a->first, stack_list->b->first);
 }

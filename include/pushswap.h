@@ -48,4 +48,12 @@ t_node	*stack_last(t_node *first);
 int	stack_size(t_node *node);
 void	print_stack(t_node *stack_a, t_node *stack_b);
 
+void	swap_int(t_node *node1, t_node *node2);
+void	sa(t_stack_list *stack_list);
+void	sb(t_stack_list *stack_list);
+void	ss(t_stack_list *stack_list);
+
+void	pa(t_stack_list *stack_list);
+void	pb(t_stack_list *stack_list);
+
 #endif
