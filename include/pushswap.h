@@ -56,4 +56,6 @@ void	ss(t_stack_list *stack_list);
 void	pa(t_stack_list *stack_list);
 void	pb(t_stack_list *stack_list);
 
+void	ra(t_stack_list *stack_list);
+
 #endif
