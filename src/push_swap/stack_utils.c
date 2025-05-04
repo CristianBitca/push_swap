@@ -25,12 +25,15 @@ t_node	*new_node(int num)
 
 void	append_stack(t_node **node_lst, t_node *new)
 {
+	t_node	*temp;
+
 	if (node_lst)
 	{
 		if (*node_lst)
 		{
-			stack_last(*node_lst)->next = new;
-			new->prev = *node_lst;
+			temp = stack_last(*node_lst);
+			temp->next = new;
+			new->prev = temp;
 		}
 		else
 			*node_lst = new;

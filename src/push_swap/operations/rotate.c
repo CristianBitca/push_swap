@@ -12,51 +12,45 @@
 
 #include "pushswap.h"
 
-void	ra(t_stack_list *stack_list)
+void	rotate_node(t_stack *stack)
 {
 	t_node *temp;
 
+	temp = stack->first;
+	stack->first = stack->first->next;
+	stack->first->prev = NULL;
+	stack->last->next = temp;
+	temp->prev = stack->last;
+	temp->next = NULL;
+	stack->last = temp;
+}
+
+void	ra(t_stack_list *stack_list)
+{
 	if (!stack_list || !stack_list->a || !stack_list->a->first || !stack_list->a->first->next)
 		return ;
-	temp = stack_list->a->first;
-	stack_list->a->first = stack_list->a->first->next;
-	if (stack_list->a->first)
-		stack_list->a->first->prev = NULL;
-	else
-		stack_list->a->last = NULL;
-	temp->next = NULL;
-	if (stack_list->a->last)
-		stack_list->a->last->next = temp;
-	else
-		stack_list->a->last = temp;
-	stack_list->a->last = temp;
+	rotate_node(stack_list->a);
 	printf("ra\n");
 	print_stack(stack_list->a->first, stack_list->b->first);
 }
 
 void	rb(t_stack_list *stack_list)
 {
-	t_node *temp;
-
 	if (!stack_list || !stack_list->b || !stack_list->b->first || !stack_list->b->first->next)
 		return ;
-	temp = stack_list->b->first;
-	stack_list->b->first = stack_list->b->first->next;
-	if (stack_list->b->first)
-		stack_list->a->first->prev = NULL;
-	else
-		stack_list->b->last = NULL;
-	temp->next = NULL;
-	if (stack_list->b->last)
-		stack_list->b->last->next = temp;
-	else
-		stack_list->b->last = temp;
-	stack_list->b->last = temp;
-	printf("ra\n");
+	rotate_node(stack_list->b);
+	printf("rb\n");
 	print_stack(stack_list->a->first, stack_list->b->first);
 }
 
 void	rr(t_stack_list *stack_list)
 {
-	
+	if (!stack_list 
+		|| !stack_list->b || !stack_list->b->first || !stack_list->b->first->next
+		|| !stack_list->a || !stack_list->a->first || !stack_list->a->first->next)
+		return ;
+	rotate_node(stack_list->a);
+	rotate_node(stack_list->b);
+	printf("rr\n");
+	print_stack(stack_list->a->first, stack_list->b->first);
 }

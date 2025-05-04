@@ -56,6 +56,14 @@ void	ss(t_stack_list *stack_list);
 void	pa(t_stack_list *stack_list);
 void	pb(t_stack_list *stack_list);
 
+void	rotate_node(t_stack *stack);
 void	ra(t_stack_list *stack_list);
+void	rb(t_stack_list *stack_list);
+void	rr(t_stack_list *stack_list);
+
+void	rev_rotate_node(t_stack *stack);
+void	rra(t_stack_list *stack_list);
+void	rrb(t_stack_list *stack_list);
+void	rrr(t_stack_list *stack_list);
 
 #endif

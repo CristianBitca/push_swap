@@ -12,6 +12,15 @@
 
 #include "pushswap.h"
 
+void	swap_int(t_node *node1, t_node *node2)
+{
+	int	temp;
+
+	temp = node1->n;
+	node1->n = node2->n;
+	node2->n = temp;
+}
+
 void	sa(t_stack_list *stack_list)
 {
 	swap_int(stack_list->a->first, stack_list->a->first->next);
