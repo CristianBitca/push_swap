@@ -12,6 +12,7 @@
 typedef struct s_node
 {
     int n;
+    int i;
     struct s_node *next;
     struct s_node *prev;
 } t_node;
