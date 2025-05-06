@@ -32,8 +32,8 @@ void	pa(t_stack_list *stack_list)
 		stack_list->a->last = temp;
 	stack_list->a->first = temp;
 	stack_list->a->size++;
-	printf("pa\n");
-	print_stack(stack_list->a->first, stack_list->b->first);
+	ft_printf("pa\n");
+	// print_stack(stack_list->a->first, stack_list->b->first);
 }
 
 void	pb(t_stack_list *stack_list)
@@ -56,6 +56,6 @@ void	pb(t_stack_list *stack_list)
 		stack_list->b->last = temp;
 	stack_list->b->first = temp;
 	stack_list->b->size++;
-	printf("pb\n");
-	print_stack(stack_list->a->first, stack_list->b->first);
+	ft_printf("pb\n");
+	// print_stack(stack_list->a->first, stack_list->b->first);
 }

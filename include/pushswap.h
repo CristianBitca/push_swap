@@ -31,11 +31,18 @@ typedef struct s_stack_list
     t_stack *b;
 }   t_stack_list;
 
+int	is_sorted(t_stack *stack);
+void	push_swap(t_stack_list *stack_list, char **values);
+
 void	free_stack(t_node *node_lst);
 void	free_stack_list(t_stack_list *stack_list);
 void    print_error(t_stack_list *stack_list, char *message);
 
-void    init_stack_list(t_stack_list *stack_list, char **values);
+t_stack_list	*init_stack_list(t_stack_list *stack_list, char **values);
+void	index_init(t_stack *stack);
+void	quicksort(int *array, int min, int max);
+int	partition(int *array, int min, int max);
+void	swap(int *n1, int *n2);
 
 long int	ps_atoi(t_stack_list *stack_list, const char *nptr);
 void	check_duplicates(t_stack_list *stack_list, t_node *node, int num);
@@ -66,5 +73,13 @@ void	rev_rotate_node(t_stack *stack);
 void	rra(t_stack_list *stack_list);
 void	rrb(t_stack_list *stack_list);
 void	rrr(t_stack_list *stack_list);
+
+void	sort_stack(t_stack_list *stack_list);
+
+void	sort_two(t_stack_list *stack_list);
+void	sort_three(t_stack_list *stack_list, int max);
+void	sort_five(t_stack_list *stack_list, int min, int max);
+
+void	chunk_sort(t_stack_list *stack_list);
 
 #endif

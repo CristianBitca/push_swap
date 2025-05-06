@@ -62,29 +62,29 @@ void	index_init(t_stack *stack)
 	t_node *cur;
 
 	array = ft_calloc(sizeof(int), stack->size);
-	i = 0;
+	i = -1;
 	cur = stack->first;
 	while (cur)
 	{
-		array[i++] = cur->n;
+		array[++i] = cur->n;
 		cur = cur->next;
 	}
 	quicksort(array, 0, stack->size - 1);
-	i = 0;
-	while (i < stack->size)
+	i = -1;
+	while (++i < stack->size)
 	{
 		cur = stack->first;
 		while (cur)
 		{
 			if (cur->n == array[i])
-				cur->i = i++;
+				cur->i = i;
 			cur = cur->next;
 		}
 	}
 	free(array);
 }
 
-void	init_stack_list(t_stack_list *stack_list, char **values)
+t_stack_list	*init_stack_list(t_stack_list *stack_list, char **values)
 {
 	stack_list = ft_calloc(sizeof(t_stack_list), 1);
 	if (!stack_list)
@@ -97,4 +97,5 @@ void	init_stack_list(t_stack_list *stack_list, char **values)
 	stack_list->a->last = stack_last(stack_list->a->first);
 	stack_list->a->size = stack_size(stack_list->a->first);
 	index_init(stack_list->a);
+	return (stack_list);
 }
