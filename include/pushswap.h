@@ -14,6 +14,7 @@ typedef struct s_chunk
     int number;
     int *size;
     int min;
+    int mid;
     int max;
 } t_chunk;
 

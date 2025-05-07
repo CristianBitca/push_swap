@@ -67,6 +67,7 @@ t_chunk	*init_chunk(t_stack_list *stack_list, t_chunk *chunk)
 		rest--;
 	}
 	chunk->max = chunk->size[0];
+	chunk->mid = (chunk->min + chunk->max) / 2;
 	return (chunk);
 }
 
@@ -79,12 +80,11 @@ void	sorting_chunk(t_stack_list *stack_list, t_chunk *chunk, int i)
 	while (count < chunk->size[i])
 	{
 		n = stack_list->a->first->i;
-		if (count >= 2
-			&& stack_list->b->first->i < stack_list->b->first->next->i)
-			rb(stack_list);
 		if (n >= chunk->min && n < chunk->max)
 		{
 			pb(stack_list);
+			if (n <= chunk->mid)
+				rb(stack_list);
 			count++;
 		}
 		else
@@ -98,14 +98,14 @@ void	return_chunk(t_stack_list *stack_list, t_chunk *chunk, int i)
 	int	count;
 
 	count = 0;
-	max = chunk->min;
+	max = chunk->max - 1;
 	while (count < chunk->size[i])
 	{
 		if (stack_list->b->first->i == max)
 		{
 			pa(stack_list);
 			count++;
-			max++;
+			max--;
 		}
 		else
 			rb(stack_list);
@@ -117,6 +117,7 @@ void	next_chunk(t_chunk *chunk, int i)
 	chunk->min += chunk->size[i];
 	i++;
 	chunk->max += chunk->size[i];
+	chunk->mid = (chunk->min + chunk->max) / 2;
 }
 
 void	chunk_sort(t_stack_list *stack_list)
