@@ -1,5 +1,17 @@
 {
 	"files.associations": {
-		"pushswap.h": "c"
+		"pushswap.h": "c",
+		"array": "c",
+		"bitset": "c",
+		"string_view": "c",
+		"initializer_list": "c",
+		"ranges": "c",
+		"span": "c",
+		"regex": "c",
+		"utility": "c",
+		"chrono": "c",
+		"random": "c",
+		"limits": "c",
+		"algorithm": "c"
 	}
 }

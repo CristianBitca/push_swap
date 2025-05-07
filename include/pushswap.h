@@ -9,6 +9,14 @@
 # define INT_OVERFLOW "One value of array is out of the limits of integer datatype.\n"
 # define INT_DUP "Your stack has an duplicated value.\n"
 
+typedef struct s_chunk
+{
+    int number;
+    int *size;
+    int min;
+    int max;
+} t_chunk;
+
 typedef struct s_node
 {
     int n;
@@ -81,5 +89,6 @@ void	sort_three(t_stack_list *stack_list, int max);
 void	sort_five(t_stack_list *stack_list, int min, int max);
 
 void	chunk_sort(t_stack_list *stack_list);
+t_chunk	*init_chunk(t_stack_list *stack_list, t_chunk *chunk);
 
 #endif

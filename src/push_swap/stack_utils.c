@@ -73,18 +73,18 @@ void	print_stack(t_node *stack_a, t_node *stack_b)
 	{
 		if (stack_a && stack_b)
 		{
-			ft_printf("%d | %d\n", stack_a->n, stack_b->n);
+			ft_printf("%d | %d\n", stack_a->i, stack_b->i);
 			stack_b = stack_b->next;
 			stack_a = stack_a->next;
 		}
 		else if (stack_a)
 		{
-			ft_printf("%d | \n", stack_a->n);
+			ft_printf("%d | \n", stack_a->i);
 			stack_a = stack_a->next;
 		}
 		else if (stack_b)
 		{
-			ft_printf("  | %d\n", stack_b->n);
+			ft_printf("  | %d\n", stack_b->i);
 			stack_b = stack_b->next;
 		}
 	}

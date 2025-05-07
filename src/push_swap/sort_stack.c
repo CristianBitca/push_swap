@@ -22,5 +22,5 @@ void	sort_stack(t_stack_list *stack_list)
 		sort_five(stack_list, 0, stack_list->a->size);
 	else if (stack_list->a->size > 5)
 		chunk_sort(stack_list);
-	print_stack(stack_list->a->first, stack_list->b->first);
+	// print_stack(stack_list->a->first, stack_list->b->first);
 }
