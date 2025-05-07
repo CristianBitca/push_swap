@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../../include/pushswap.h"
 
 long int	ps_atoi(t_stack_list *stack_list, const char *nptr)
 {

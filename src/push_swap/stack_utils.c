@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../../include/pushswap.h"
 
 t_node	*new_node(int num)
 {

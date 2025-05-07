@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../../include/pushswap.h"
 
 void	sort_stack(t_stack_list *stack_list)
 {

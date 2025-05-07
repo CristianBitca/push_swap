@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../../include/pushswap.h"
 
 void	free_stack(t_node *node_lst)
 {
