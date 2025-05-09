@@ -90,6 +90,18 @@ void	sort_three(t_stack_list *stack_list, int max);
 void	sort_five(t_stack_list *stack_list, int min, int max);
 
 void	chunk_sort(t_stack_list *stack_list);
+
 t_chunk	*init_chunk(t_stack_list *stack_list, t_chunk *chunk);
+void	chunk_size(t_chunk *chunk, int size);
+int	chunk_number(int size);
+int	ft_sqrt(int nb);
+
+void	sorting_chunk(t_stack_list *stack_list, t_chunk *chunk, int i);
+int	chunk_way(t_stack *stack, int min, int max);
+void	next_chunk(t_chunk *chunk, int i);
+
+void	return_chunk(t_stack_list *stack_list, t_chunk *chunk, int i);
+int	short_way(t_stack *stack, int n);
+void	prev_chunk(t_chunk *chunk, int i);
 
 #endif
