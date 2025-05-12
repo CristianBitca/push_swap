@@ -19,7 +19,7 @@ void	sort_two(t_stack_list *stack_list)
 }
 
 void	sort_three(t_stack_list *stack_list, int max)
-{	
+{
 	if (stack_list->a->first->i == max - 1)
 		ra(stack_list);
 	else
@@ -39,5 +39,3 @@ void	sort_five(t_stack_list *stack_list, int min, int max)
 		sort_five(stack_list, ++min, max);
 	pa(stack_list);
 }
-
-

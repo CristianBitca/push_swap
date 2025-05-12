@@ -14,34 +14,23 @@
 
 int	chunk_way(t_stack *stack, int min, int max)
 {
-	t_node *node1;
-	t_node *node2;
-	int	i;
-	int	j;
-	int	count;
+	t_node	*node;
+	int		i;
+	int		count;
 
 	i = 0;
-	j = 0;
 	count = 0;
-	node1 = stack->first;
-	node2 = stack->last;
+	node = stack->first;
 	while (count != stack->size / 2)
 	{
-		if (node1->i >= min && node1->i < max)
+		if (node->i >= min && node->i < max)
 			i++;
-		node1 = node1->next;
+		node = node->next;
 		count++;
 	}
-	while (count != stack->size)
-	{
-		if (node2->i >= min && node2->i < max)
-			j++;
-		node2 = node2->prev;
-		count++;
-	}
-	if (j < i)
-		return (1);
-	return (0);
+	if (i > (max - min) / 2)
+		return (0);
+	return (1);
 }
 
 void	next_chunk(t_chunk *chunk, int i)
@@ -56,20 +45,23 @@ void	sorting_chunk(t_stack_list *stack_list, t_chunk *chunk, int i)
 {
 	int	count;
 	int	n;
+	int	way;
 
 	count = 0;
 	while (count < chunk->size[i])
 	{
+		way = chunk_way(stack_list->a, chunk->min, chunk->max);
 		n = stack_list->a->first->i;
-		if (n >= chunk->min && n < chunk->max)
+		if (in_range(n, chunk->min, chunk->max))
 		{
 			pb(stack_list);
 			count++;
 			if (n >= chunk->mid)
 				rb(stack_list);
 		}
-		else
+		if (way == 0)
 			ra(stack_list);
-
+		else
+			rra(stack_list);
 	}
 }

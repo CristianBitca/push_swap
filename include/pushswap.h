@@ -90,6 +90,7 @@ void	sort_three(t_stack_list *stack_list, int max);
 void	sort_five(t_stack_list *stack_list, int min, int max);
 
 void	chunk_sort(t_stack_list *stack_list);
+int	in_range(int n, int min, int max);
 
 t_chunk	*init_chunk(t_stack_list *stack_list, t_chunk *chunk);
 void	chunk_size(t_chunk *chunk, int size);

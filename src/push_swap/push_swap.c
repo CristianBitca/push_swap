@@ -14,7 +14,7 @@
 
 int	is_sorted(t_stack *stack)
 {
-	t_node *cur;
+	t_node	*cur;
 
 	cur = stack->first;
 	while (cur->next)

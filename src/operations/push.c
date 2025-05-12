@@ -14,7 +14,7 @@
 
 void	pa(t_stack_list *stack_list)
 {
-	t_node *temp;
+	t_node	*temp;
 
 	if (!stack_list || !stack_list->b || !stack_list->b->first)
 		return ;
@@ -33,12 +33,11 @@ void	pa(t_stack_list *stack_list)
 	stack_list->a->first = temp;
 	stack_list->a->size++;
 	ft_printf("pa\n");
-	// print_stack(stack_list->a->first, stack_list->b->first);
 }
 
 void	pb(t_stack_list *stack_list)
 {
-	t_node *temp;
+	t_node	*temp;
 
 	if (!stack_list || !stack_list->a || !stack_list->a->first)
 		return ;
@@ -57,5 +56,4 @@ void	pb(t_stack_list *stack_list)
 	stack_list->b->first = temp;
 	stack_list->b->size++;
 	ft_printf("pb\n");
-	// print_stack(stack_list->a->first, stack_list->b->first);
 }

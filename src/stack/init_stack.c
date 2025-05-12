@@ -57,9 +57,9 @@ void	quicksort(int *array, int min, int max)
 
 void	index_init(t_stack *stack)
 {
-	int	*array;
-	int	i;
-	t_node *cur;
+	int		*array;
+	int		i;
+	t_node	*cur;
 
 	array = ft_calloc(sizeof(int), stack->size);
 	i = -1;

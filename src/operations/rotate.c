@@ -14,7 +14,7 @@
 
 void	rotate_node(t_stack *stack)
 {
-	t_node *temp;
+	t_node	*temp;
 
 	temp = stack->first;
 	stack->first = stack->first->next;
@@ -27,30 +27,29 @@ void	rotate_node(t_stack *stack)
 
 void	ra(t_stack_list *stack_list)
 {
-	if (!stack_list || !stack_list->a || !stack_list->a->first || !stack_list->a->first->next)
+	if (!stack_list || !stack_list->a
+		|| !stack_list->a->first || !stack_list->a->first->next)
 		return ;
 	rotate_node(stack_list->a);
 	ft_printf("ra\n");
-	// print_stack(stack_list->a->first, stack_list->b->first);
 }
 
 void	rb(t_stack_list *stack_list)
 {
-	if (!stack_list || !stack_list->b || !stack_list->b->first || !stack_list->b->first->next)
+	if (!stack_list || !stack_list->b
+		|| !stack_list->b->first || !stack_list->b->first->next)
 		return ;
 	rotate_node(stack_list->b);
 	ft_printf("rb\n");
-	// print_stack(stack_list->a->first, stack_list->b->first);
 }
 
 void	rr(t_stack_list *stack_list)
 {
-	if (!stack_list 
-		|| !stack_list->b || !stack_list->b->first || !stack_list->b->first->next
-		|| !stack_list->a || !stack_list->a->first || !stack_list->a->first->next)
+	if (!stack_list || !stack_list->b || !stack_list->b->first
+		|| !stack_list->b->first->next || !stack_list->a
+		|| !stack_list->a->first || !stack_list->a->first->next)
 		return ;
 	rotate_node(stack_list->a);
 	rotate_node(stack_list->b);
 	ft_printf("rr\n");
-	// print_stack(stack_list->a->first, stack_list->b->first);
 }

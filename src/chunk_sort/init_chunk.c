@@ -31,11 +31,11 @@ int	chunk_number(int size)
 	else if (size <= 100)
 		return (5);
 	else if (size <= 200)
-		return (8);
+		return (7);
 	else if (size <= 300)
-		return (10);
+		return (8);
 	else
-		return ((ft_sqrt(size) / 2) - 1);
+		return ((ft_sqrt(size) / 2));
 }
 
 void	chunk_size(t_chunk *chunk, int size)

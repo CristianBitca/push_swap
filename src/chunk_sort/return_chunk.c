@@ -14,10 +14,10 @@
 
 int	short_way(t_stack *stack, int n)
 {
-	t_node *node1;
-	t_node *node2;
-	int	i;
-	int	j;
+	t_node	*node1;
+	t_node	*node2;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;

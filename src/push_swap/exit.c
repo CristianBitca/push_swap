@@ -30,7 +30,7 @@ void	free_stack_list(t_stack_list *stack_list)
 	{
 		if (stack_list->a)
 		{
-			free_stack(stack_list->a->first);	
+			free_stack(stack_list->a->first);
 			free(stack_list->a);
 		}
 		if (stack_list->b)
